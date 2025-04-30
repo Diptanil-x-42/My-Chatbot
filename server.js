@@ -7,6 +7,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { GoogleGenAI } from '@google/genai';
 import mime from 'mime'; // Required for genai
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 
 
@@ -22,7 +25,7 @@ app.use(express.static('public')); // Serve static frontend files (index.html, e
 // Initialize Gemini AI
 const ai = new GoogleGenAI({
   // Provide your API key or auth credentials if necessary
-  apiKey: "AIzaSyCeVbnjwIbfrYgf3xTCRIHkdC3fGi6zV-Y",
+  apiKey: process.env.GOOGLE_API_KEY
 });
 
 // Fixed initial system prompt
